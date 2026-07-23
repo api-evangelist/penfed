@@ -1,0 +1,35 @@
+aid: penfed
+url: https://raw.githubusercontent.com/api-evangelist/penfed/refs/heads/main/apis.yml
+name: PenFed Credit Union
+kind: company
+description: >-
+  PenFed Credit Union (Pentagon Federal Credit Union), founded in 1935 and
+  headquartered in McLean, Virginia, is a federally chartered credit union
+  regulated by the National Credit Union Administration (NCUA) and one of the
+  largest credit unions in the United States, with roughly 2.9 million members
+  and tens of billions of dollars in assets. It is a not-for-profit, member-owned
+  financial cooperative that originally served the U.S. military and defense
+  community and now offers open membership, providing mortgages, auto loans,
+  credit cards, personal loans, and deposit accounts. On the open-finance front,
+  PenFed exhibits the posture typical of a U.S. credit union: it publishes no
+  first-party public developer portal or documented API program, and consumer
+  account data is made available through permissioned third-party aggregators
+  rather than a directly documented FDX or CFPB Section 1033 data-access API.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Financial Services
+- Banking
+- Credit Union
+- United States
+- Open Finance
+- Data Aggregation
+created: '2026-07-23'
+modified: '2026-07-23'
+specificationVersion: '0.19'
+apis: []
+common:
+- type: Website
+  url: https://www.penfed.org/
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

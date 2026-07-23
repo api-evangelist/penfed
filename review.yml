@@ -1,0 +1,74 @@
+aid: penfed
+name: PenFed Credit Union
+review:
+  question: Does PenFed Credit Union expose a public, first-party developer API or a documented FDX / CFPB 1033 data-access program?
+  answer: false
+  date: '2026-07-23'
+  reviewer: API Evangelist
+findings:
+  summary: |
+    PenFed Credit Union (Pentagon Federal Credit Union) is a federally
+    chartered, NCUA-regulated, member-owned not-for-profit credit union and
+    one of the largest in the United States. It publishes no first-party
+    public developer portal, no downloadable OpenAPI/Swagger specifications,
+    and no documented public API program. This is the standard posture for a
+    U.S. credit union, where consumer-permissioned data sharing is brokered by
+    third-party aggregators rather than a directly documented first-party API.
+    No authentication model is documented because no public API surface is
+    documented. No spec was harvested because none is publicly available.
+  charterType: Federal credit union (NCUA-chartered and regulated), not-for-profit member-owned cooperative
+  developerPortal:
+    exists: false
+    note: |
+      No public developer portal was found. DNS lookups for developer.penfed.org,
+      developers.penfed.org, apis.penfed.org, sandbox.penfed.org,
+      openbanking.penfed.org and data.penfed.org all return NXDOMAIN.
+  hosts:
+    - host: developer.penfed.org
+      dns: NXDOMAIN
+    - host: developers.penfed.org
+      dns: NXDOMAIN
+    - host: apis.penfed.org
+      dns: NXDOMAIN
+    - host: sandbox.penfed.org
+      dns: NXDOMAIN
+    - host: openbanking.penfed.org
+      dns: NXDOMAIN
+    - host: api.penfed.org
+      dns: A 52.7.49.110 (AWS EC2 ec2-52-7-49-110.compute-1.amazonaws.com)
+      http: no public HTTP/TLS response (connection did not complete); appears to be a private application backend, not a documented public API
+    - host: www.penfed.org
+      http: live but WAF-protected; returns 403/blocked responses to automated clients, so path probes are not evidence of developer pages
+  openApiHarvested: false
+  specProvenance: none — no publicly downloadable OpenAPI/Swagger located
+  authModel: none documented (no public API surface)
+  fdxParticipation:
+    documented: false
+    note: No first-party FDX-conformant data-access API was found documented for PenFed. Any consumer data sharing is presumed to occur via aggregators, which was not independently confirmed from published documentation.
+  cfpb1033Posture:
+    documented: false
+    note: No published CFPB Section 1033 (Personal Financial Data Rights) developer program or data-access posture was located for PenFed as of the review date.
+  aggregatorAccess:
+    likely: true
+    note: Consistent with most U.S. credit unions, consumer-permissioned account data is reached through third-party aggregators (e.g. Plaid, MX, Finicity, Akoya) rather than a first-party API. Not independently confirmed from published documentation.
+  transports:
+    - protocol: REST
+      documented: false
+      note: No public first-party REST API is documented.
+    - protocol: FDX
+      documented: false
+      note: No first-party FDX data-access API is documented.
+sources:
+  - url: https://www.penfed.org/
+    type: Website
+    note: Primary institution website; live but WAF-protected against automated clients.
+  - url: https://api.penfed.org/
+    type: Host
+    note: Resolves to an AWS EC2 address but returns no public documented HTTP API; treated as a private application backend.
+actions:
+  apisYmlUpdated: true
+  reason: |
+    Identity-only (built-stub) record. apis[] is empty because PenFed exposes
+    no public, documented first-party API and no downloadable specification.
+    The honest open-finance posture is aggregator-mediated data access with no
+    documented first-party FDX or CFPB 1033 developer program.

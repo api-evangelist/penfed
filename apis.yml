@@ -11,9 +11,12 @@ description: >-
   financial cooperative that originally served the U.S. military and defense
   community and now offers open membership, providing mortgages, auto loans,
   credit cards, personal loans, and deposit accounts. On the open-finance front,
-  PenFed exhibits the posture typical of a U.S. credit union: it publishes no
-  first-party public developer portal or documented API program, and consumer
-  account data is made available through permissioned third-party aggregators
+  PenFed runs an internal API-management practice — MuleSoft/Anypoint is the
+  backbone of its digital-banking platform and an Apigee-backed developer portal
+  host exists at developer.penfed.org (with an api.penfed.org gateway) — but
+  neither surface is publicly documented or openly reachable: there is no public
+  developer program, no published OpenAPI, and consumer account data is made
+  available to members through permissioned third-party aggregators such as Plaid
   rather than a directly documented FDX or CFPB Section 1033 data-access API.
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
@@ -28,8 +31,16 @@ modified: '2026-07-23'
 specificationVersion: '0.19'
 apis: []
 common:
+- type: DomainSecurity
+  url: security/penfed-domain-security.yml
 - type: Website
   url: https://www.penfed.org/
+- type: DeveloperPortal
+  url: https://developer.penfed.org/
+- type: Login
+  url: https://www.penfed.org/login
+- type: PrivacyPolicy
+  url: https://www.penfed.org/privacy-policy
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

@@ -1,5 +1,5 @@
 generated: '2026-10-12'
-method: none
+method: searched
 source:
 - https://zapier.com/apps/penfed/integrations
 - https://zapier.com/apps/penfed-credit-union/integrations
@@ -12,7 +12,45 @@ checked:
 - https://n8n.io/integrations/penfed/
 - https://zapier.com/apps/penfed-credit-union/integrations
 - https://zapier.com/apps/penfed/integrations
+- https://api.fdic.gov/banks/history
+- https://api.fdic.gov/banks/institutions?filters=ACTIVE:1&fields=NAME,WEBADDR,CERT,ASSET,STALP
+- https://www.ncua.gov/files/publications/analysis/call-report-data-2025-06.zip
+- https://www.ncua.gov/files/publications/analysis/federally-insured-credit-union-list-june-2025.zip
 summary: null
 marketplace_apps: []
-edges: []
+edges:
+- partner_name: NCUA federally insured credit unions
+  partner: null
+  partner_match: register
+  type: register
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.ncua.gov/files/publications/analysis/federally-insured-credit-union-list-june-2025.zip
+  category: US NCUA federally insured credit union charter
+  contract_reference:
+    register: NCUA federally insured credit unions
+    spec_file: null
+    standard: null
+    role: insured-credit-union
+    registrations:
+    - registered_name: PENTAGON
+      register_status: active
+      register_country: US
+      register_id: '227'
+      matched_domain: penfed.org
+      matched_by: domain
+      licences:
+      - NCUA federally insured credit union (charter 227)
+      evidence_url: https://mapping.ncua.gov/ResearchCreditUnion.aspx
+      state: VA
+      trade_names:
+      - Pentagon Federal Credit Union
+      - PenFed
+    signal_note: 'participation only: a federal deposit-insurance charter on a regulator register; no API conformance
+      is published by this register'
+    detected_by: sweep-us-bank-credit-union-registers.py
+    detected: '2026-10-22'
+  detected_by: sweep-us-bank-credit-union-registers.py
+  first_seen: '2026-10-22'
 templates: []
